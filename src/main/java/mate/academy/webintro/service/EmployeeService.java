@@ -1,10 +1,11 @@
 package mate.academy.webintro.service;
 
-import mate.academy.webintro.model.Employee;
+import mate.academy.webintro.dto.EmployeeRequestDto;
+import mate.academy.webintro.dto.EmployeeResponseDto;
 import java.util.List;
 
 public interface EmployeeService {
-    Employee save(Employee employee);
+    EmployeeResponseDto save(EmployeeRequestDto requestDto);
 
-    List<Employee> findAll();
+    List<EmployeeResponseDto> findAll();
 }

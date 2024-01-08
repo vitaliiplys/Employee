@@ -1,7 +1,8 @@
 package mate.academy.webintro.controller;
 
 import lombok.RequiredArgsConstructor;
-import mate.academy.webintro.model.Employee;
+import mate.academy.webintro.dto.EmployeeRequestDto;
+import mate.academy.webintro.dto.EmployeeResponseDto;
 import mate.academy.webintro.service.EmployeeService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,16 +15,15 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/employees")
 public class EmployeeController {
-
     private final EmployeeService employeeService;
 
     @GetMapping
-    public List<Employee> findAll() {
+    public List<EmployeeResponseDto> findAll() {
         return employeeService.findAll();
     }
 
     @PostMapping
-    public Employee save(@RequestBody Employee employee) {
-        return employeeService.save(employee);
+    public EmployeeResponseDto save(@RequestBody EmployeeRequestDto requestDto) {
+        return employeeService.save(requestDto);
     }
 }
